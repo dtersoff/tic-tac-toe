@@ -1,6 +1,7 @@
 'use strict'
 
 const squareEvents = require('./squares/events')
+
 // use require with a reference to bundle the file and use it in this file
 // const example = require('./example')
 
@@ -8,5 +9,5 @@ const squareEvents = require('./squares/events')
 // require('./example')
 
 $(() => {
-  $('.square').on('click', squareEvents.onClick)
+  $('.square').on('click', squareEvents.onClick(board))
 })

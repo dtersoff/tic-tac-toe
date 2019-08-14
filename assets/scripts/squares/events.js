@@ -3,19 +3,22 @@
 // const api = require('./api')
 // const ui = require('./ui')
 
-let currentPlayer = true
+const boardMaker = require('../../lib/board.js')
+const Board = boardMaker.board
+const board = new Board()
+
 const onClick = event => {
   event.preventDefault()
 
   if (!$(event.target).text()) {
     let player = ''
-    if (currentPlayer) {
+    if (board.player) {
       player = 'X'
     } else {
       player = 'O'
     }
     $(event.target).text(player)
-    currentPlayer = !currentPlayer
+    board.player = !board.player
   }
 }
 
