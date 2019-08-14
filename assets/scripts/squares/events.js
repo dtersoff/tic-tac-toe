@@ -4,7 +4,7 @@
 // const ui = require('./ui')
 
 const boardMaker = require('../../../lib/board.js')
-const Board = boardMaker.board
+const Board = boardMaker.Board
 const board = new Board()
 
 const onClick = event => {
