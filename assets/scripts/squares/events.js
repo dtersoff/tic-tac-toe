@@ -9,10 +9,9 @@ const board = new Board()
 
 const onClick = event => {
   event.preventDefault()
-
   if (!$(event.target).text()) {
     let player = ''
-    const cell = event.target.cell
+    const cell = $(event.target).data('cell')
     if (board.player) {
       player = 'X'
     } else {
@@ -20,8 +19,9 @@ const onClick = event => {
     }
     $(event.target).text(player)
     board.makeMove(cell)
+    console.log(board.checkWin())
   }
-  console.log(board)
+  console.log(board.showBoard())
 }
 
 module.exports = {
