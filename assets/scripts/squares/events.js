@@ -8,11 +8,13 @@ const onClick = event => {
   event.preventDefault()
 
   if (!$(event.target).text()) {
+    let player = ''
     if (currentPlayer) {
-      $(event.target).text('X')
+      player = 'X'
     } else {
-      $(event.target).text('O')
+      player = 'O'
     }
+    $(event.target).text(player)
     currentPlayer = !currentPlayer
   }
 }
