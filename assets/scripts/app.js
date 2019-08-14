@@ -9,5 +9,5 @@ const squareEvents = require('./squares/events')
 // require('./example')
 
 $(() => {
-  $('.square').on('click', squareEvents.onClick(board))
+  $('.square').on('click', squareEvents.onClick)
 })
