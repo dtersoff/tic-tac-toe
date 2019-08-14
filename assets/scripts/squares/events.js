@@ -3,7 +3,7 @@
 // const api = require('./api')
 // const ui = require('./ui')
 
-const boardMaker = require('../../lib/board.js')
+const boardMaker = require('../../../lib/board.js')
 const Board = boardMaker.board
 const board = new Board()
 
