@@ -12,14 +12,16 @@ const onClick = event => {
 
   if (!$(event.target).text()) {
     let player = ''
+    const cell = event.target.cell
     if (board.player) {
       player = 'X'
     } else {
       player = 'O'
     }
     $(event.target).text(player)
-    board.player = !board.player
+    board.makeMove(cell)
   }
+  console.log(board)
 }
 
 module.exports = {
