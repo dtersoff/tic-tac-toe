@@ -11,6 +11,7 @@ const squareEvents = require('./squares/events')
 
 $(() => {
   $('#sign-up').on('submit', authEvents.onSignUp)
+  $('#sign-in').on('submit', authEvents.onSignIn)
 
   $('.square').on('click', squareEvents.onClick)
   $('#new-game').on('click', squareEvents.newGame)
