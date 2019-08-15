@@ -12,6 +12,9 @@ const squareEvents = require('./squares/events')
 $(() => {
   $('#change-password').hide()
   $('#sign-out').hide()
+  $('#board').hide()
+  $('#game-messages').hide()
+  $('#new-game').hide()
 
   $('#sign-up').on('submit', authEvents.onSignUp)
   $('#sign-in').on('submit', authEvents.onSignIn)
