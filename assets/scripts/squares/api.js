@@ -15,7 +15,8 @@ const create = formData => {
 }
 
 const click = event => {
-  //
+  const cell = $(event.target).data('cell')
+
 }
 
 module.exports = {

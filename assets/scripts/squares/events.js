@@ -1,8 +1,7 @@
 'use strict'
 
 // const api = require('./ap`i')
-const getFormFields = require('./../../../lib/get-form-fields')
-const store = require('../store')
+
 const api = require('./api')
 const ui = require('./ui')
 
@@ -10,6 +9,7 @@ const onClick = event => {
   event.preventDefault()
   if (ui.isGameOver()) {
   } else if (!$(event.target).text()) {
+    api.click(event.target)
     ui.onClickSuccess(event)
   } else {
     ui.onClickFailure()

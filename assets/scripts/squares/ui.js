@@ -1,8 +1,10 @@
 'use strict'
 
+const store = require('../store')
 const boardMaker = require('../../../lib/board.js')
 const Board = boardMaker.Board
 const board = new Board()
+store.board = board
 
 const setMessage = (number, message) => {
   $(`.message div:nth-child(${number})`).text(message)
@@ -47,7 +49,8 @@ const onClickFailure = () => {
   setMessage(2, 'Invalid move, please try again')
 }
 
-const onNewGame = () => {
+const onNewGame = data => {
+  store.game = data.game
   board.newGame()
   setMessage(1, 'Player X\'s turn')
   setMessage(2, '')
