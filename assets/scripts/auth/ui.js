@@ -21,9 +21,6 @@ const signInSuccess = (data) => {
 
   store.user = data.user
 
-  $('#message').text('Successful sign in ')
-  $('#message').removeClass()
-  $('#message').addClass('success') // optional for css styling
   console.log('Successful sign in. User is' + store.user)
   $('#change-password').show()
   $('#sign-up').hide()

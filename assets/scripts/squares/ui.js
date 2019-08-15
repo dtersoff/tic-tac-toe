@@ -9,7 +9,7 @@ const setMessage = (number, message) => {
 }
 
 const isGameOver = () => {
-  if (board.win) {
+  if (board.win || board.draw) {
     return true
   } else {
     return false
