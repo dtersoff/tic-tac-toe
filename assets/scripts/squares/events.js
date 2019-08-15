@@ -5,13 +5,19 @@ const ui = require('./ui')
 
 const onClick = event => {
   event.preventDefault()
-  if (!$(event.target).text()) {
+  if (ui.isGameOver()) {
+  } else if (!$(event.target).text()) {
     ui.onClickSuccess(event)
   } else {
     ui.onClickFailure()
   }
 }
 
+const newGame = () => {
+  ui.onNewGame()
+}
+
 module.exports = {
-  onClick
+  onClick,
+  newGame
 }

@@ -4,6 +4,17 @@ const boardMaker = require('../../../lib/board.js')
 const Board = boardMaker.Board
 const board = new Board()
 
+const setMessage = (number, message) => {
+  $(`.message div:nth-child(${number})`).text(message)
+}
+
+const isGameOver = () => {
+  if (board.win) {
+    return true
+  } else {
+    return false
+  }
+}
 const onClickSuccess = event => {
   if (!$(event.target).text()) {
     let player = ''
@@ -15,19 +26,42 @@ const onClickSuccess = event => {
     }
     $(event.target).text(player)
     board.makeMove(cell)
-    console.log(board.checkWin())
-    $('.message div:nth-child(1)').text('Player ' + board.getPlayer() + '\'s turn')
-    if ($('.message div:nth-child(2)').text) {
-      $('.message div:nth-child(2)').text('')
+    let message = ''
+    if (board.checkWin()) {
+      message = 'Player ' + board.winner + ' wins!'
+      setMessage(1, message)
+    } else if (board.checkFull()) {
+      message = 'It\'s a draw!'
+      board.over = true
+      board.draw = true
+      setMessage(1, message)
+    } else {
+      message = 'Player ' + board.getPlayer() + '\'s turn'
+      setMessage(1, message)
     }
+    setMessage(2, '')
   }
 }
 
 const onClickFailure = () => {
-  $('.message div:nth-child(2)').text('Invalid move, please try again')
+  setMessage(2, 'Invalid move, please try again')
+}
+
+const onNewGame = () => {
+  board.newGame()
+  setMessage(1, 'Player X\'s turn')
+  setMessage(2, '')
+  $('.square').text('')
+}
+
+const failure = () => {
+  setMessage(2, 'An error has occured')
 }
 
 module.exports = {
   onClickSuccess,
-  onClickFailure
+  onClickFailure,
+  isGameOver,
+  onNewGame,
+  failure
 }
