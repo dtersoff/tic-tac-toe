@@ -14,7 +14,17 @@
     </head>
     <body>
       <h1>Tic-Tac-Toe</h1>
-
+      <hr>
+      <form id='sign-up' class='border'>
+        <fieldset>
+          <legend>Sign up!</legend>
+          <input type="text" name="credentials[email]" placeholder="Email">
+          <input type="password" name="credentials[password]" placeholder="Password">
+          <input type="password" name="credentials[password_confirmation]" placeholder = "Confirm Password">
+          <input type="submit" value ="Sign up!">
+        </fieldset>
+      </form>
+<hr>
       <button type="button" name="new-game" id="new-game">New Game</button>
       <div class="row board">
         <div class="col-4 square" data-cell="0"></div>
