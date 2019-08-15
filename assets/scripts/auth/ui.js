@@ -24,6 +24,20 @@ const signInSuccess = (data) => {
   $('#message').removeClass()
   $('#message').addClass('success') // optional for css styling
   console.log('Successful sign in. User is' + store.user)
+  $('#change-password').show()
+  $('#sign-up').hide()
+  $('#sign-in').hide()
+}
+
+const changePasswordSuccess = () => {
+  // handle storing user token, if it exists
+  // {"user":{"id":, "email:", "token":}}
+  // store.token = data.user.token
+
+  $('#message').text('Successfully changed password')
+  $('#message').removeClass()
+  $('#message').addClass('success') // optional for css styling
+  console.log('success ran')
 }
 
 const failure = () => {
@@ -36,5 +50,6 @@ const failure = () => {
 module.exports = {
   signUpSuccess,
   signInSuccess,
+  changePasswordSuccess,
   failure
 }
