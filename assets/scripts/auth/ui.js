@@ -11,6 +11,7 @@ const signUpSuccess = () => {
   $('#message').removeClass()
   $('#message').addClass('success') // optional for css styling
   console.log('success ran')
+  $('form').trigger('reset')
 }
 
 const signInSuccess = (data) => {
@@ -27,6 +28,8 @@ const signInSuccess = (data) => {
   $('#change-password').show()
   $('#sign-up').hide()
   $('#sign-in').hide()
+  $('#sign-out').show()
+  $('form').trigger('reset')
 }
 
 const changePasswordSuccess = () => {
@@ -38,6 +41,19 @@ const changePasswordSuccess = () => {
   $('#message').removeClass()
   $('#message').addClass('success') // optional for css styling
   console.log('success ran')
+  $('form').trigger('reset')
+}
+
+const signOutSuccess = () => {
+  store.user = null
+  $('#message').text('Successfully signed out')
+  $('#message').removeClass()
+  $('#message').addClass('success') // optional for css styling
+  console.log('success ran')
+  $('#change-password').hide()
+  $('#sign-up').show()
+  $('#sign-in').show()
+  $('#sign-out').hide()
 }
 
 const failure = () => {
@@ -51,5 +67,6 @@ module.exports = {
   signUpSuccess,
   signInSuccess,
   changePasswordSuccess,
+  signOutSuccess,
   failure
 }
