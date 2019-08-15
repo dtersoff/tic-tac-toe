@@ -16,10 +16,18 @@ const onClickSuccess = event => {
     $(event.target).text(player)
     board.makeMove(cell)
     console.log(board.checkWin())
-    $('.message').text('Player ' + board.getPlayer() + '\'s turn')
+    $('.message div:nth-child(1)').text('Player ' + board.getPlayer() + '\'s turn')
+    if ($('.message div:nth-child(2)').text) {
+      $('.message div:nth-child(2)').text('')
+    }
   }
 }
 
+const onClickFailure = () => {
+  $('.message div:nth-child(2)').text('Invalid move, please try again')
+}
+
 module.exports = {
-  onClickSuccess
+  onClickSuccess,
+  onClickFailure
 }
