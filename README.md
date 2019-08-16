@@ -23,7 +23,7 @@ My strategy was essentially to work on making one functional piece at a time. Th
 
 # Wireframe and User Stories
 
-- ![wireframe](https://imgur.com/a/SdfoXfj "Tic Tac Toe wireframe")
+- ![wireframe](https://i.imgur.com/S0dNwyV.jpg "Tic Tac Toe wireframe")
 
 - As a user, when I am logged in,
   - I can start a new game
