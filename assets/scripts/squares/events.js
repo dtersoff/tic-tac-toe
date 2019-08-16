@@ -32,7 +32,14 @@ const newGame = event => {
     .catch(ui.failure)
 }
 
+const showStats = () => {
+  api.index()
+    .then(ui.onIndexSuccess)
+    .catch(ui.failure)
+}
+
 module.exports = {
   onClick,
-  newGame
+  newGame,
+  showStats
 }

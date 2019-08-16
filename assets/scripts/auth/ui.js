@@ -10,7 +10,6 @@ const signUpSuccess = () => {
   $('#message').text('Successful sign up ')
   $('#message').removeClass()
   $('#message').addClass('success') // optional for css styling
-  console.log('success ran')
   $('form').trigger('reset')
 }
 
@@ -21,13 +20,17 @@ const signInSuccess = (data) => {
 
   store.user = data.user
 
-  console.log('Successful sign in. User is' + store.user)
+  $('#message').text('Successful sign-in ')
+  $('#message').removeClass()
+  $('#message').addClass('success')
   $('#change-password').show()
   $('#sign-up').hide()
   $('#sign-in').hide()
   $('#sign-out').show()
   $('form').trigger('reset')
   $('#new-game').show()
+  $('#show-stats').show()
+  $('#stat-message').show()
 }
 
 const changePasswordSuccess = () => {
@@ -38,7 +41,6 @@ const changePasswordSuccess = () => {
   $('#message').text('Successfully changed password')
   $('#message').removeClass()
   $('#message').addClass('success') // optional for css styling
-  console.log('success ran')
   $('form').trigger('reset')
 }
 
@@ -47,7 +49,6 @@ const signOutSuccess = () => {
   $('#message').text('Successfully signed out')
   $('#message').removeClass()
   $('#message').addClass('success') // optional for css styling
-  console.log('success ran')
   $('#change-password').hide()
   $('#sign-up').show()
   $('#sign-in').show()

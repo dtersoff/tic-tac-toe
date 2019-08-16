@@ -15,6 +15,9 @@ const create = formData => {
 }
 
 const click = cell => {
+  store.board.makeMove(cell)
+  store.board.checkWin()
+  store.board.checkDraw()
   return $.ajax({
     url: config.apiUrl + '/games/' + store.game.id,
     method: 'PATCH',
@@ -25,15 +28,26 @@ const click = cell => {
       game: {
         cell: {
           index: cell,
-          value: store.board.getPlayer()
+          value: store.board.cells[cell]
         },
-        over: false
+        over: store.board.over
       }
+    }
+  })
+}
+
+const index = () => {
+  return $.ajax({
+    url: config.apiUrl + '/games',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
     }
   })
 }
 
 module.exports = {
   create,
-  click
+  click,
+  index
 }

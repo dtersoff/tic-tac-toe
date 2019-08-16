@@ -15,6 +15,8 @@ $(() => {
   $('#board').hide()
   $('#game-messages').hide()
   $('#new-game').hide()
+  $('#show-stats').hide()
+  $('#stat-message').hide()
 
   $('#sign-up').on('submit', authEvents.onSignUp)
   $('#sign-in').on('submit', authEvents.onSignIn)
@@ -23,4 +25,5 @@ $(() => {
 
   $('.square').on('click', squareEvents.onClick)
   $('#new-game').on('click', squareEvents.newGame)
+  $('#show-stats').on('click', squareEvents.showStats)
 })

@@ -21,14 +21,13 @@ const onClickSuccess = (data, event) => {
   console.log(data)
   if (!$(event.target).text()) {
     let player = ''
-    const cell = $(event.target).data('cell')
-    if (store.board.player) {
+    if (!store.board.player) {
       player = 'X'
     } else {
       player = 'O'
     }
     $(event.target).text(player)
-    store.board.makeMove(cell)
+
     let message = ''
     if (store.board.checkWin()) {
       message = 'Player ' + store.board.winner + ' wins!'
@@ -62,6 +61,15 @@ const onNewGame = data => {
   }
 }
 
+const onIndexSuccess = data => {
+  const games = data.games
+  const totalGames = games.length
+  const finishedGames = games.filter(game => game.over)
+  const message = '<div>You have played ' + totalGames + ' game(s).</div>' +
+  '<div>You have finished ' + finishedGames.length + ' game(s).</div>'
+  $('#stat-message').html(message)
+}
+
 const failure = () => {
   setMessage(2, 'An error has occured')
 }
@@ -71,5 +79,6 @@ module.exports = {
   onClickFailure,
   isGameOver,
   onNewGame,
+  onIndexSuccess,
   failure
 }
