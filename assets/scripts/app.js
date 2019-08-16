@@ -12,7 +12,7 @@ const squareEvents = require('./squares/events')
 $(() => {
   $('#change-password').hide()
   $('#sign-out').hide()
-  $('#board').hide()
+  // $('#board').hide()
   $('#game-messages').hide()
   $('#new-game').hide()
   $('#show-stats').hide()

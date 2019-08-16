@@ -1,4 +1,5 @@
 @import '~bootstrap/scss/bootstrap';
+@import './typography.scss';
 
 $alt-color: $cyan;
 $body-bg-color: $gray-200;
@@ -8,12 +9,23 @@ body {
   background-color: $body-bg-color;
 }
 
+h1 {
+  height: calc(100%/10);
+}
+
 .alt-color {
   background-color: $alt-color;
 }
 
+.auth-contents {
+  height: calc(100%/10*2);
+}
+
 .failure {
   border: 3px solid red;
+}
+
+.game-contents {
 }
 
 .square {
@@ -24,8 +36,15 @@ body {
   display: flex;
   height: 80px;
   justify-content: center;
+  padding-top: calc(100% / 6);
+  padding-bottom: calc(100% / 6);
 }
 
 .success {
   border: 3px solid green;
+}
+
+#board {
+  margin: 2em 25%;
+  padding: 1em;
 }

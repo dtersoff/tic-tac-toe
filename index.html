@@ -15,69 +15,72 @@
     <body>
       <h1>Tic-Tac-Toe</h1>
       <hr>
-      <div class="message" id="message">
+      <section class="auth-contents">
+        <div class="message" id="message">
 
-      </div>
-      <form id='sign-up' class='border'>
-        <fieldset>
-          <legend>Sign up</legend>
-          <div>(do not use real password and email, this is NOT secure!!!)</div>
-          <input type="text" name="credentials[email]" placeholder="Email">
-          <input type="password" name="credentials[password]" placeholder="Password">
-          <input type="password" name="credentials[password_confirmation]" placeholder = "Confirm Password">
-          <input type="submit" value ="Sign up">
-        </fieldset>
-      </form>
+        </div>
+        <form id='sign-up' class='border'>
+          <fieldset>
+            <legend>Sign up</legend>
+            <div>(do not use real password and email, this is NOT secure!!!)</div>
+            <input type="text" name="credentials[email]" placeholder="Email">
+            <input type="password" name="credentials[password]" placeholder="Password">
+            <input type="password" name="credentials[password_confirmation]" placeholder = "Confirm Password">
+            <input type="submit" value ="Sign up">
+          </fieldset>
+        </form>
 
-      <form id='sign-in' class='border'>
-        <fieldset>
-          <legend>Sign in</legend>
-          <input type="text" name="credentials[email]" placeholder="Email">
-          <input type="password" name="credentials[password]" placeholder="Password">
-          <input type="submit" value ="Sign in">
-        </fieldset>
-      </form>
+        <form id='sign-in' class='border'>
+          <fieldset>
+            <legend>Sign in</legend>
+            <input type="text" name="credentials[email]" placeholder="Email">
+            <input type="password" name="credentials[password]" placeholder="Password">
+            <input type="submit" value ="Sign in">
+          </fieldset>
+        </form>
 
-      <form id='change-password' class = 'border'>
-        <fieldset>
-          <legend>Change Password</legend>
-          <input type="password" name="passwords[old]" placeholder="Current password">
-          <input type="password" name="passwords[new]" placeholder ="New password">
-          <input type='submit' value='Change Password'>
-        </fieldset>
-      </form>
+        <form id='change-password' class = 'border'>
+          <fieldset>
+            <legend>Change Password</legend>
+            <input type="password" name="passwords[old]" placeholder="Current password">
+            <input type="password" name="passwords[new]" placeholder ="New password">
+            <input type='submit' value='Change Password'>
+          </fieldset>
+        </form>
 
-      <form id="sign-out" class="border">
-        <fieldset>
-          <legend>Sign out</legend>
-          <input type='submit' value='Sign out'>
-        </fieldset>
-      </form>
+        <form id="sign-out" class="border">
+          <fieldset>
+            <legend>Sign out</legend>
+            <input type='submit' value='Sign out'>
+          </fieldset>
+        </form>
 
-      <hr>
-      <button type="button" name="new-game" id="new-game">New Game</button>
+        <hr>
+      </section>
+      <section class="game-contents">
+        <button type="button" name="new-game" id="new-game">New Game</button>
 
-      <div class="row" id="board">
-        <div class="col-4 square" data-cell="0"></div>
-        <div class="col-4 square" data-cell="1"></div>
-        <div class="col-4 square" data-cell="2"></div>
-        <div class="col-4 square" data-cell="3"></div>
-        <div class="col-4 square" data-cell="4"></div>
-        <div class="col-4 square" data-cell="5"></div>
-        <div class="col-4 square" data-cell="6"></div>
-        <div class="col-4 square" data-cell="7"></div>
-        <div class="col-4 square" data-cell="8"></div>
-      </div>
+        <div class="row" id="board">
+          <div class="col-4 square" data-cell="0">X</div>
+          <div class="col-4 square" data-cell="1">O</div>
+          <div class="col-4 square" data-cell="2">X</div>
+          <div class="col-4 square" data-cell="3"></div>
+          <div class="col-4 square" data-cell="4"></div>
+          <div class="col-4 square" data-cell="5"></div>
+          <div class="col-4 square" data-cell="6"></div>
+          <div class="col-4 square" data-cell="7"></div>
+          <div class="col-4 square" data-cell="8"></div>
+        </div>
 
-      <div class="message" id="game-messages">
-        <div>Player X's turn</div>
-        <div></div>
-      </div>
-      <hr>
-      <button type="button" name="show-stats" id="show-stats">Show Stats</button>
-      <div class="message" id="stat-message">
+        <div class="message" id="game-messages">
+          <div>Player X's turn</div>
+          <div></div>
+        </div>
+        <hr>
+        <button type="button" name="show-stats" id="show-stats">Show Stats</button>
+        <div class="message" id="stat-message">
 
-      </div>
-
+        </div>
+      </section>
     </body>
 </html>
