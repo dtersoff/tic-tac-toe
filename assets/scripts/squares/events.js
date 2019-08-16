@@ -23,6 +23,7 @@ const onClick = event => {
 const newGame = event => {
   // prevent default action
   event.preventDefault()
+
   console.log('successfully created')
   // make api call
   api.create()
@@ -30,6 +31,10 @@ const newGame = event => {
     .then(ui.onNewGame)
     // handle failure
     .catch(ui.failure)
+
+  $('html, body').animate({
+    scrollTop: ($('.game-contents').first().offset().top)
+  }, 500)
 }
 
 const showStats = () => {
