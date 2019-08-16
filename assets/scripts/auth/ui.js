@@ -62,7 +62,6 @@ const failure = () => {
   $('#message').text('Failed operation')
   $('#message').removeClass()
   $('#message').addClass('failure') // optional for css styling
-  console.log('failure ran')
 }
 
 module.exports = {

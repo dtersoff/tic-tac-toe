@@ -24,7 +24,6 @@ const newGame = event => {
   // prevent default action
   event.preventDefault()
 
-  console.log('successfully created')
   // make api call
   api.create()
   // handle success

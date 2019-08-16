@@ -5,7 +5,6 @@ const ui = require('./ui')
 
 const onSignUp = (event) => {
   event.preventDefault()
-  console.log('submitted sign-up!')
   // get form data
   const data = getFormFields(event.target)
   // make api call
@@ -19,7 +18,6 @@ const onSignUp = (event) => {
 const onSignIn = event => {
   // prevent default action
   event.preventDefault()
-  console.log('submitted sign-in!')
   // get form data
   const data = getFormFields(event.target)
   // make api call

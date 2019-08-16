@@ -18,7 +18,6 @@ const isGameOver = () => {
   }
 }
 const onClickSuccess = (data, event) => {
-  console.log(data)
   if (!$(event.target).text()) {
     let player = ''
     if (!store.board.player) {
