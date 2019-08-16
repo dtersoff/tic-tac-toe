@@ -11,34 +11,35 @@ const setMessage = (number, message) => {
 }
 
 const isGameOver = () => {
-  if (board.win || board.draw) {
+  if (store.board.win || store.board.draw) {
     return true
   } else {
     return false
   }
 }
-const onClickSuccess = event => {
+const onClickSuccess = (data, event) => {
+  console.log(data)
   if (!$(event.target).text()) {
     let player = ''
     const cell = $(event.target).data('cell')
-    if (board.player) {
+    if (store.board.player) {
       player = 'X'
     } else {
       player = 'O'
     }
     $(event.target).text(player)
-    board.makeMove(cell)
+    store.board.makeMove(cell)
     let message = ''
-    if (board.checkWin()) {
-      message = 'Player ' + board.winner + ' wins!'
+    if (store.board.checkWin()) {
+      message = 'Player ' + store.board.winner + ' wins!'
       setMessage(1, message)
-    } else if (board.checkFull()) {
+    } else if (store.board.checkFull()) {
       message = 'It\'s a draw!'
-      board.over = true
-      board.draw = true
+      store.board.over = true
+      store.board.draw = true
       setMessage(1, message)
     } else {
-      message = 'Player ' + board.getPlayer() + '\'s turn'
+      message = 'Player ' + store.board.getPlayer() + '\'s turn'
       setMessage(1, message)
     }
     setMessage(2, '')
@@ -51,10 +52,14 @@ const onClickFailure = () => {
 
 const onNewGame = data => {
   store.game = data.game
-  board.newGame()
+  store.board.newGame()
   setMessage(1, 'Player X\'s turn')
   setMessage(2, '')
   $('.square').text('')
+  if ($('#board').is(':hidden')) {
+    $('#board').show()
+    $('#game-messages').show()
+  }
 }
 
 const failure = () => {

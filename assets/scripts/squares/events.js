@@ -7,10 +7,11 @@ const ui = require('./ui')
 
 const onClick = event => {
   event.preventDefault()
-  if (ui.isGameOver()) {
-  } else if (!$(event.target).text()) {
-    api.click(event.target)
-    ui.onClickSuccess(event)
+  const cell = $(event.target).data('cell')
+  if (!$(event.target).text() && !ui.isGameOver()) {
+    api.click(cell)
+      .then((data) => ui.onClickSuccess(data, event))
+      .catch(ui.failure)
   } else {
     ui.onClickFailure()
   }
@@ -19,7 +20,7 @@ const onClick = event => {
 }
 // .catch(ui.onClickFailure)
 
-const newGame = (event) => {
+const newGame = event => {
   // prevent default action
   event.preventDefault()
   console.log('successfully created')
