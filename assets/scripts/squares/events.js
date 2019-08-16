@@ -41,6 +41,10 @@ const showStats = () => {
   api.index()
     .then(ui.onIndexSuccess)
     .catch(ui.failure)
+
+  $('html, body').animate({
+    scrollTop: ($('#show-stats').first().offset().top)
+  }, 500)
 }
 
 module.exports = {

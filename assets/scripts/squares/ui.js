@@ -7,7 +7,7 @@ const board = new Board()
 store.board = board
 
 const setMessage = (number, message) => {
-  $(`.message div:nth-child(${number})`).text(message)
+  $(`#game-messages div:nth-child(${number})`).text(message)
 }
 
 const isGameOver = () => {
