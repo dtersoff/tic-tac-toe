@@ -29,8 +29,10 @@ const signInSuccess = (data) => {
   $('#sign-out').show()
   $('form').trigger('reset')
   $('#new-game').show()
+  $('#last-game').show()
   $('#show-stats').show()
   $('#stat-message').show()
+  $('#last-game').attr('disabled', false)
 }
 
 const changePasswordSuccess = () => {
@@ -56,6 +58,7 @@ const signOutSuccess = () => {
   $('#board').hide()
   $('#game-messages').hide()
   $('#new-game').hide()
+  $('#last-game').hide()
 }
 
 const failure = () => {

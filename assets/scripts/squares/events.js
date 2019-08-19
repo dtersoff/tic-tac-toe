@@ -46,8 +46,15 @@ const showStats = () => {
   }, 500)
 }
 
+const onLastGame = () => {
+  api.index()
+    .then((data) => ui.onLastGameSuccess(data))
+    .catch(ui.failure)
+}
+
 module.exports = {
   onClick,
   newGame,
-  showStats
+  showStats,
+  onLastGame
 }

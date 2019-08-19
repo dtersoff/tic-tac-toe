@@ -42,6 +42,7 @@ const onClickSuccess = (data, event) => {
     }
     setMessage(2, '')
   }
+  console.log(store.board.showBoard())
 }
 
 const onClickFailure = () => {
@@ -73,11 +74,31 @@ const failure = () => {
   setMessage(2, 'An error has occured')
 }
 
+const onLastGameSuccess = data => {
+  if ($('#board').is(':hidden')) {
+    $('#board').show()
+    $('#game-messages').show()
+    $('#last-game').attr('disabled', true)
+  }
+
+  const games = data.games
+  const lastGame = games[games.length - 1]
+  store.game = lastGame
+  store.board.resumeGame(lastGame)
+
+  for (let i = 0; i < lastGame.length; i++) {
+    const mark = lastGame.cells[i].toUpperCase()
+    $(`#board .square:nth-child(${i + 1})`).text(mark)
+  }
+  console.log(store.board.showBoard())
+}
+
 module.exports = {
   onClickSuccess,
   onClickFailure,
   isGameOver,
   onNewGame,
   onIndexSuccess,
+  onLastGameSuccess,
   failure
 }

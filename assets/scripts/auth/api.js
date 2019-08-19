@@ -40,9 +40,20 @@ const signOut = () => {
   })
 }
 
+const getLastGame = () => {
+  // get index
+  // target = index.length-1
+  // store index[target].id
+  // get game with that id
+  // check if game is over
+  // if game is not over, offer resume game button
+  // if resume game is clicked, get data from game and store it in a new game board, and print to the display board
+}
+
 module.exports = {
   signUp,
   signIn,
   changePassword,
-  signOut
+  signOut,
+  getLastGame
 }
