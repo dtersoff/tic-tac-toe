@@ -17,6 +17,24 @@ const isGameOver = () => {
     return false
   }
 }
+
+const gameMessage = () => {
+  let message = ''
+  if (store.board.checkWin()) {
+    message = 'Player ' + store.board.winner + ' wins!'
+    setMessage(1, message)
+  } else if (store.board.checkFull()) {
+    message = 'It\'s a draw!'
+    store.board.over = true
+    store.board.draw = true
+    setMessage(1, message)
+  } else {
+    message = 'Player ' + store.board.getPlayer() + '\'s turn'
+    setMessage(1, message)
+  }
+  setMessage(2, '')
+}
+
 const onClickSuccess = (data, event) => {
   if (!$(event.target).text()) {
     let player = ''
@@ -26,29 +44,12 @@ const onClickSuccess = (data, event) => {
       player = 'O'
     }
     $(event.target).text(player)
-
-    let message = ''
-    if (store.board.checkWin()) {
-      message = 'Player ' + store.board.winner + ' wins!'
-      setMessage(1, message)
-    } else if (store.board.checkFull()) {
-      message = 'It\'s a draw!'
-      store.board.over = true
-      store.board.draw = true
-      setMessage(1, message)
-    } else {
-      message = 'Player ' + store.board.getPlayer() + '\'s turn'
-      setMessage(1, message)
-    }
-    setMessage(2, '')
   }
-  console.log(store.board.showBoard())
+  gameMessage()
 }
-
 const onClickFailure = () => {
   setMessage(2, 'Invalid move, please try again')
 }
-
 const onNewGame = data => {
   store.game = data.game
   store.board.newGame()
@@ -86,11 +87,11 @@ const onLastGameSuccess = data => {
   store.game = lastGame
   store.board.resumeGame(lastGame)
 
-  for (let i = 0; i < lastGame.length; i++) {
+  for (let i = 0; i < lastGame.cells.length; i++) {
     const mark = lastGame.cells[i].toUpperCase()
     $(`#board .square:nth-child(${i + 1})`).text(mark)
   }
-  console.log(store.board.showBoard())
+  gameMessage()
 }
 
 module.exports = {
