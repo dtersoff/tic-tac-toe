@@ -16,10 +16,12 @@
 My strategy was essentially to work on making one functional piece at a time. That way even if a bit of code wasn't in the right place at the start, I at least had it written and knew it worked, and could move it if need be.
 
 # Unsolved Problems
-- Getting more information about previous games
-- Being able to continue the last game if it wasn't finished
-- Multiplayer between different accounts
-- Adding a computer player
+- [ ] Getting more information about previous games
+- [x] Being able to continue the last game if it wasn't finished
+  - [ ] fix hitting last game button on a new account
+- [ ] Multiplayer between different accounts
+- [ ] Adding a computer player
+- [ ] Make sign-up/in/out status messages disappear after a little while
 
 # Wireframe and User Stories
 
