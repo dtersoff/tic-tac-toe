@@ -2,10 +2,6 @@
 
 const store = require('../store')
 
-const setMessage = (number, message) => {
-  $(`#game-messages div:nth-child(${number})`).text(message)
-}
-
 const signUpSuccess = () => {
   // handle storing user token, if it exists
   // {"user":{"id":, "email:", "token":}}
@@ -72,6 +68,7 @@ const failure = () => {
   $('#message').text('Failed operation')
   $('#message').removeClass()
   $('#message').addClass('failure') // optional for css styling
+  $('form').trigger('reset')
 }
 
 module.exports = {
