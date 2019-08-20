@@ -2,6 +2,10 @@
 
 const store = require('../store')
 
+const setMessage = (number, message) => {
+  $(`#game-messages div:nth-child(${number})`).text(message)
+}
+
 const signUpSuccess = () => {
   // handle storing user token, if it exists
   // {"user":{"id":, "email:", "token":}}
@@ -58,7 +62,10 @@ const signOutSuccess = () => {
   $('#board').hide()
   $('#game-messages').hide()
   $('#new-game').hide()
+  $('#show-stats').hide()
+  $('#stat-message').hide()
   $('#last-game').hide()
+  $(`#stat-message`).text('')
 }
 
 const failure = () => {
